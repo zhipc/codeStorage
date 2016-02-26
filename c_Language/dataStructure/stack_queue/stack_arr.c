@@ -34,7 +34,8 @@ int main()
 {
     int x;
     pnode stack = malloc(sizeof(snode));
-    //stack->arr[N] = {0};
+    //出错是因为数组越界，参考40行，arr[N]是arr的第N+1个元素，此处为数组元素的赋值，与数组声明并初始化是不同的
+    //stack->arr[N] = {0};  
     for (x = 0; x < N; x++) {
         stack->arr[x] = 0;
     }
