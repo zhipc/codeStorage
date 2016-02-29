@@ -8,6 +8,21 @@ typedef struct node {
     int pout;
 }snode, *pnode;
 
+void init_queue(pnode *queue)
+{
+    int i;
+    *queue = malloc(sizeof(snode));
+    if (*queue == NULL) {
+        perror("malloc");
+        exit(-1);
+    }
+    for (i = 0; i < N; i++) {
+        queue->arr[i] = 0;
+    }   
+    queue->pin = 0;
+    queue->pout = 0;
+}
+
 void queue_in(pnode queue, int x)
 {
     if ((queue->pin + 1) % N == queue->pout) {
@@ -43,13 +58,8 @@ void show_queue(pnode queue)
 int main()
 {
     int x;
-    pnode queue = malloc(sizeof(snode));
-    for (x = 0; x < N; x++) {
-        queue->arr[x] = 0;
-    }
-    queue->pin = 0;
-    queue->pout = 0;
-
+    pnode queue = NULL;
+    init_queue(&queue);
     while (1) {
         scanf("%d", &x);
         queue_in(queue, x);
