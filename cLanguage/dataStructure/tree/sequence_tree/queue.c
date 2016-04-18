@@ -1,6 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#define N 100
+#include "queue.h"
 
 void init_queue(pnode *queue)
 {
@@ -11,10 +9,10 @@ void init_queue(pnode *queue)
         exit(-1);
     }
     for (i = 0; i < N; i++) {
-        queue->arr[i] = 0;
+        (*queue)->arr[i] = 0;
     }   
-    queue->pin = 0;
-    queue->pout = 0;
+    (*queue)->pin = 0;
+    (*queue)->pout = 0;
 }
 
 void queue_in(pnode queue, ptree data)
