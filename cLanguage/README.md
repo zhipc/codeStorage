@@ -28,3 +28,6 @@ c语言代码库
         + [tree_chain](dataStructure/tree/tree_chain.c)
 
 ### 参考资料：
+* [www.cppreference.com](http://en.cppreference.com/w/c)
+    - [英文网](http://en.cppreference.com/w/c)
+    - [中文网](http://zh.cppreference.com/w/c)
