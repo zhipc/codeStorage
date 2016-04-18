@@ -31,3 +31,4 @@ c语言代码库
 * [www.cppreference.com](http://en.cppreference.com/w/c)
     - [英文网](http://en.cppreference.com/w/c)
     - [中文网](http://zh.cppreference.com/w/c)
+* [man-pages](https://www.kernel.org/doc/man-pages/)
