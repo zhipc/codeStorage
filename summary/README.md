@@ -2,8 +2,8 @@ summary
 -----
 
 ### c语言：
-* [base]()
-    - [约瑟夫环]()
+* [base](cLanguage/base/)
+    - [约瑟夫环](cLanguage/base/circle.c)
 * [structure]()
     - [chain]()
         + [single_chain]()
