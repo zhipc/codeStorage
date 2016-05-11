@@ -1,7 +1,7 @@
 #include <stdio.h>
 #define TOTAL 41
 #define SPLIT 3
-#define REST 1
+#define REST 0
 
 struct people {
     int id;
@@ -11,7 +11,7 @@ struct people {
 int main()
 {
     int remain = TOTAL;
-    int count = 1;
+    int count = 0;
 
     struct people peo[TOTAL];
     int i = 0;
@@ -20,14 +20,15 @@ int main()
         peo[i].flag = 1;
     }
 
-    while (remain > REST) {
-        if (peo[count].flag == 1) {
+    for (i = 0; remain > REST; i++) {
+        i = i % TOTAL;
+        if (peo[i].flag == 1) {
+            count++;
             if (count % SPLIT == 0) {
-                peo[count].flag == 0;    
-                printf("peo[%d] is removed!\n", count);
+                peo[i].flag = 0;    
+                printf("peo[%d] is removed!\n", i + 1);
                 remain--;
             }
-            count = count++ % TOTAL;
         }
     }
     return 0;
