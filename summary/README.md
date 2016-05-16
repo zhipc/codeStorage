@@ -31,3 +31,16 @@ summary
 
 ### python：
 * []()
+
+### database：
+* []()
+
+### linux：
+* []()
+
+### some questions:
+* crontab
+* sql
+* find命令：查找a目录和b目录下的所有.c和.h文件
+* 不使用第三方变量，交换两个变量的值：a^b^b
+* 约瑟夫环
