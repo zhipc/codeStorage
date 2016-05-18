@@ -18,7 +18,7 @@ void bubble_sort(int arr[], int length)    //冒泡排序
 }
 
 //源程序参见《C++语言程序设计》（郑莉）p380
-void bubble_sort_improve(int arr[], int length) {   
+void bubbleSort(int arr[], int length) {       //改进的冒泡排序
     int i = length - 1;     //i是下一趟需参与排序交换的元素的最大下标
     while (i > 0) {         //继续排序过程，直到最后一趟排序没有交换发生
         int lastExchangeIndex = 0;      //每一趟开始时，设置交换标志为0（未交换）
@@ -114,6 +114,20 @@ void insertionSort(int arr[], int length)      //直接插入排序
     }   
 }
 
+//希尔排序
+void shell_sort(int a[], int len)
+{
+    int i, j, tmp, d = len;
+    while ((d /= 2) > 0) {
+        for(i = d; i < len; i++){
+            for(j = i,tmp = a[i]; j >= d && tmp < a[j - d]; j -= d){
+                a[j] = a[j - d];
+            }
+            a[j] = tmp;
+        }
+    }
+}
+
 void radix_sort(int arr[], int length);      //基数排序
 
 void quick_sort(int arr[], int length);     //快速排序
@@ -138,5 +152,13 @@ void sort(int arr[], int length)
 
 
 排序算法：
-冒泡、选择（堆排序）、快速、基数、插入（希尔）、归并
+冒泡、选择（堆排序）、快速、基数、插入（希尔）、归并、桶、计数
 
+关于稳定性：
+选择排序、快速排序、希尔排序、堆排序是不稳定的排序算法，
+冒泡排序、插入排序、计数排序、归并排序和基数排序是稳定的排序算法。
+常用时间复杂度的大小关系：O(1)<O(logn)<O(n)<O(nlogn)<O(n2)<O(n3)<O(2n)<O(n!)<O(nn)
+
+
+已经实现的排序算法：冒泡、选择、快速、基数、插入（希尔）
+未实现的：堆排序、归并、桶、计数（希尔排序还需要好好看看）

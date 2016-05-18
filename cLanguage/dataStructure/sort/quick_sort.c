@@ -67,7 +67,7 @@ void quick_sort(int arr[], int start, int end)
 				arr[i] = arr[j];
 				i++;
 			}
-			while (i < j && arr[i] < base) {		//从左向右找第一个大于base的数
+			while (i < j && arr[i] < base) {		//从左向右找第一个大于等于base的数
 				i++;
 			}
 			if (i < j) {
