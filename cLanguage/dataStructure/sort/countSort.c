@@ -23,7 +23,35 @@ void output_arr(int arr[], int length)
     printf("\n");
 }
 
-void countSort(int arr[], int length)
+//根据标准计数排序思想编写
+void countSort_standard(int arr[], int length)
+{
+    int range[RANGE_MAX - RANGE_MIN + 1] = {0};
+    //可以使用int *tmp = calloc(length, sizeof(int));  使用calloc不要忘了free
+    int tmp[ARRSIZE] = {0};
+    int i;
+    for (i = 0; i < length; i++) {
+        range[arr[i] - RANGE_MIN]++;
+    }   
+    for (i = 1; i < RANGE_MAX - RANGE_MIN + 1; i++) {
+        range[i] = range[i - 1] + range[i];
+#ifdef DEBUG
+        if (range[i - 1] != range[i]) {
+            printf("range[%d] = %d\n", i, range[i]);
+        }   
+#endif
+    }   
+    //逆序输出确保稳定---->相同元素相对顺序不变
+    for (i = length - 1; i >= 0; i--) {
+        tmp[range[arr[i] - RANGE_MIN] - 1] = arr[i];
+        range[arr[i] - RANGE_MIN]--;
+    }   
+    for (i = 0; i < length; i++) {
+        arr[i] = tmp[i];
+    }   
+}
+
+void countSort_my(int arr[], int length)
 {
     int range[RANGE_MAX - RANGE_MIN + 1] = {0}; 
 
