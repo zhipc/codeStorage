@@ -33,6 +33,42 @@ void bubbleSort(int arr[], int length) {       //改进的冒泡排序
     }   
 } 
 
+//鸡尾酒排序（改进的冒泡排序）
+void cocktailSort(int arr[], int length)
+{
+    int i, tmp;
+    int head = 0;
+    int tail = length - 1;
+    int flag = 0;
+    while (head < tail) {
+        flag = 0;
+        for (i = tail - 1; i >= head; i--) {        //第一轮，先将最小的数据排到前面
+            if (arr[i] > arr[i + 1]) {
+                swap(&arr[i], &arr[i + 1]);
+                flag = 1;
+            }   
+        }   
+        head++;                                     //原来head处数据已排好序，加1
+        for (i = head; i < tail; i++) {             //将最大数据排到后面
+            if (arr[i] > arr[i + 1]) {
+                swap(&arr[i], &arr[i + 1]);
+                flag = 1;
+            }   
+        }   
+        tail--;                                     //原来tail处数据也已排好序，将其减1
+
+        if (!flag) {        //如果一趟比较之后没有发生交换，说明排序已经完成
+            break;
+        }
+        /*
+        for (i = 0; i < length; i++) {
+            printf("%d ", arr[i]);
+        }
+        printf("\n");
+        */
+    }
+}
+
 void select_sort(int arr[], int length)    //选择排序
 {
     int i, j;
@@ -152,7 +188,7 @@ void sort(int arr[], int length)
 
 
 排序算法：
-冒泡、选择（堆排序）、快速、插入（希尔）、归并、计数（桶、基数）
+冒泡（鸡尾酒）、选择（堆排序）、快速、插入（希尔）、归并、计数（桶、基数）
 
 关于稳定性：
 选择排序、快速排序、希尔排序、堆排序是不稳定的排序算法，
@@ -161,5 +197,5 @@ void sort(int arr[], int length)
 经计数排序，输出序列中值相同的元素之间的相对次序与他们在输入序列中的相对次序相同，换句话说，计数排序算法是一个稳定的排序算法
 
 
-已经实现的排序算法：冒泡、选择、快速、插入（希尔）、计数（桶、基数）
+已经实现的排序算法：冒泡（鸡尾酒）、选择、快速、插入（希尔）、计数（桶、基数）
 未实现的：堆排序、归并（希尔排序还需要好好看看）
