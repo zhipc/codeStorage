@@ -5,5 +5,7 @@
 -----
 [python](python/README.md)
 -----
+[scala](scala/README.md)
+-----
 [summary](summary/README.md)
 -----
